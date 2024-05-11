@@ -1,38 +1,42 @@
 package com.TCC.Agro.Core.Entity;
 
-import com.TCC.Agro.Core.util.Status_Gravidez;
+import com.TCC.Agro.Core.util.StatusGravidez;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import java.util.Date;
-@Table(name = "gestacao")
+
+@Table(name = "Gestacao")
 @Entity(name = "Gestacao")
-@Getter
+@EqualsAndHashCode(of = "IdGestacao")
 @NoArgsConstructor
-@EqualsAndHashCode(of = "ID_Gestacao")
+@AllArgsConstructor
+
 public class Gestacao {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID_Gestacao;
-    @ManyToOne
+    private Long IdGestacao;
+
+    @Column(name = "idInseminacao")
     private Inseminacao inseminacao;
-    private Date Data_Prevista_Parto;
-    private Date Data_Parto;
-    @Enumerated
-    private Status_Gravidez statusGravidez;
+
+    @Column(name = "DataPrevistaParto")
+    private Date DataPrevistaParto;
+
+    @Column(name = "DataParto")
+    private Date DataParto;
+
+    @Enumerated(EnumType.STRING)
+    @Column(name = "StatusGravidez")
+    private StatusGravidez statusGravidez;
+
+    @Column(name = "TempoLeiteiro")
+    private Integer TempoLeiteiro;
+
+    @Column(name = "Observacoes")
     private String Observacoes;
 
-
-    public Gestacao(Long ID_Gestacao, Inseminacao inseminacao, Date data_Prevista_Parto,
-                    Date data_Parto, Status_Gravidez statusGravidez,
-                    String observacoes) {
-        this.ID_Gestacao = ID_Gestacao;
-        this.inseminacao = inseminacao;
-        Data_Prevista_Parto = data_Prevista_Parto;
-        Data_Parto = data_Parto;
-        this.statusGravidez = statusGravidez;
-        Observacoes = observacoes;
-    }
 }

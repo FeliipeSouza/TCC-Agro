@@ -1,40 +1,38 @@
 package com.TCC.Agro.Core.Entity;
 
-import com.TCC.Agro.Core.util.Tipo_Inseminacao;
+import com.TCC.Agro.Core.util.TipoInseminacao;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.EqualsAndHashCode;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-
 import java.util.Date;
-@Table(name = "inseminacao")
+
+@Table(name = "Inseminacao")
 @Entity(name = "Inseminacao")
+@EqualsAndHashCode(of = "IdInseminacao")
 @NoArgsConstructor
-@EqualsAndHashCode(of = "ID_Inseminacao")
-@Getter
+@AllArgsConstructor
+
 public class Inseminacao {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long ID_Inseminacao;
+    private Long IdInseminacao;
 
-    @ManyToOne
+    @Column(name = "IdAnimal")
     private Animal animal;
 
-    private Date Data_inseminacao;
+    @Column(name = "Inseminada")
+    private Boolean Inseminada = false;
 
+    @Column(name = "DataInseminacao")
+    private Date DataInseminacao;
+
+    @Column(name = "TipoInseminacao")
     @Enumerated(EnumType.STRING)
-    private Tipo_Inseminacao tipoInseminacao;
+    private TipoInseminacao tipoInseminacao;
 
-    private String Nome_Touro;
-
-    public Inseminacao(Long ID_Inseminacao, Animal animal,
-                       Date data_inseminacao,
-                       Tipo_Inseminacao tipoInseminacao, String nome_Touro) {
-        this.ID_Inseminacao = ID_Inseminacao;
-        this.animal = animal;
-        Data_inseminacao = data_inseminacao;
-        this.tipoInseminacao = tipoInseminacao;
-        Nome_Touro = nome_Touro;
-    }
+    @Column(name = "NomeTouro")
+    private String NomeTouro;
 
 }
