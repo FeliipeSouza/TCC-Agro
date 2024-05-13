@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 @Table(name = "Usuario")
 @Entity(name = "Usuario")
-@EqualsAndHashCode(of = "IdUsuario")
+@EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 @AllArgsConstructor
 
@@ -15,7 +15,7 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long IdUsuario;
+    private Long id;
 
     @Column(name = "Login")
     private String Login;

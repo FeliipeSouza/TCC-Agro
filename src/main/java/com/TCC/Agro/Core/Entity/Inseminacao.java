@@ -9,7 +9,7 @@ import java.util.Date;
 
 @Table(name = "Inseminacao")
 @Entity(name = "Inseminacao")
-@EqualsAndHashCode(of = "IdInseminacao")
+@EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 @AllArgsConstructor
 
@@ -17,7 +17,7 @@ public class Inseminacao {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long IdInseminacao;
+    private Long id;
 
     @Column(name = "IdAnimal")
     private Animal animal;

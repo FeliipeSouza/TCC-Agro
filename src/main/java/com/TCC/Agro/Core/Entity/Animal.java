@@ -10,7 +10,7 @@ import java.util.Date;
 
 @Table(name = "Animal")
 @Entity(name = "Animal")
-@EqualsAndHashCode(of = "IdAnimal")
+@EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 @AllArgsConstructor
 
@@ -18,7 +18,7 @@ public class Animal {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long IdAnimal;
+    private Long id;
 
     @Column(name = "Idfazenda")
     private Fazenda fazenda;

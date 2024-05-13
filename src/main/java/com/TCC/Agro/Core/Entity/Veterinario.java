@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 
 @Table(name = "Veterinario")
 @Entity(name = "Veterinario")
-@EqualsAndHashCode(of = "IdVeterinario")
+@EqualsAndHashCode(of = "id")
 @NoArgsConstructor
 @AllArgsConstructor
 
@@ -15,7 +15,7 @@ public class Veterinario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long IdVeterinario;
+    private Long id;
 
     @Column(name = "Nome")
     private String Nome;
